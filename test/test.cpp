@@ -15,7 +15,7 @@ namespace all_tests
 			Assert::AreEqual("pero", s.name.c_str());
 			Assert::AreEqual(2, s.grade);
 		}
-
+		
 		TEST_METHOD(results_test_set_1)
 		{
 			results r(5);
@@ -27,7 +27,7 @@ namespace all_tests
 			Assert::AreEqual(2u, r.has_grade(3));
 			Assert::AreEqual(2u, r.starts_with_letter('P'));
 		}
-
+		
 		TEST_METHOD(results_test_set_2)
 		{
 			results r(4);
@@ -113,87 +113,87 @@ namespace all_tests
 		}
 
 	};
+	//
+	//TEST_CLASS(test_v03_array)
+	//{
+	//	const uint32_t size = 10;
+	//	const double value = 1.5;
 
-	TEST_CLASS(test_v03_array)
-	{
-		const uint32_t size = 10;
-		const double value = 1.5;
+	//public:
+	//	TEST_METHOD(array_default_constructor)
+	//	{
+	//		array a;
+	//		Assert::AreEqual(0u, a.size());
+	//	}
 
-	public:
-		TEST_METHOD(array_default_constructor)
-		{
-			array a;
-			Assert::AreEqual(0u, a.size());
-		}
+	//	TEST_METHOD(array_constructor)
+	//	{
+	//		array a(size, value);
+	//		Assert::AreEqual(size, a.size());
+	//		for(uint32_t i=0; i<a.size(); ++i)
+	//			Assert::AreEqual(value, a.at(i));
+	//	}
 
-		TEST_METHOD(array_constructor)
-		{
-			array a(size, value);
-			Assert::AreEqual(size, a.size());
-			for(uint32_t i=0; i<a.size(); ++i)
-				Assert::AreEqual(value, a.at(i));
-		}
+	//	TEST_METHOD(array_index_invalid_large)
+	//	{
+	//		array a(size, value);
+	//		Assert::AreEqual(0., a.at(100));
+	//	}
 
-		TEST_METHOD(array_index_invalid_large)
-		{
-			array a(size, value);
-			Assert::AreEqual(0., a.at(100));
-		}
+	//	TEST_METHOD(array_index_invalid_negative)
+	//	{
+	//		array a(size, value);
+	//		Assert::AreEqual(0., a.at(-1));
+	//	}
 
-		TEST_METHOD(array_index_invalid_negative)
-		{
-			array a(size, value);
-			Assert::AreEqual(0., a.at(-1));
-		}
+	//	TEST_METHOD(array_copy_constructor)
+	//	{
+	//		array a(size, value);
+	//		array b(a);
+	//		Assert::AreEqual(size, b.size());
+	//		for (uint32_t i = 0; i < b.size(); ++i)
+	//			Assert::AreEqual(value, b.at(i));
+	//	}
 
-		TEST_METHOD(array_copy_constructor)
-		{
-			array a(size, value);
-			array b(a);
-			Assert::AreEqual(size, b.size());
-			for (uint32_t i = 0; i < b.size(); ++i)
-				Assert::AreEqual(value, b.at(i));
-		}
+	//	TEST_METHOD(array_move_constructor)
+	//	{
+	//		array a(size, value);
+	//		array b(std::move(a));
+	//		Assert::AreEqual(0u, a.size());
+	//		Assert::AreEqual(size, b.size());
+	//		for (uint32_t i = 0; i < b.size(); ++i)
+	//			Assert::AreEqual(value, b.at(i));
+	//	}
 
-		TEST_METHOD(array_move_constructor)
-		{
-			array a(size, value);
-			array b(std::move(a));
-			Assert::AreEqual(0u, a.size());
-			Assert::AreEqual(size, b.size());
-			for (uint32_t i = 0; i < b.size(); ++i)
-				Assert::AreEqual(value, b.at(i));
-		}
+	//	TEST_METHOD(array_grow_from_empty)
+	//	{
+	//		array a;
+	//		Assert::AreEqual(0u, a.size());
+	//		a.push_back(1.5);
+	//		Assert::AreEqual(1u, a.size());
+	//		a.push_back(2.5);
+	//		Assert::AreEqual(2u, a.size());
+	//		a.push_back(3.5);
+	//		Assert::AreEqual(3u, a.size());
+	//		Assert::AreEqual(1.5, a.at(0));
+	//		Assert::AreEqual(2.5, a.at(1));
+	//		Assert::AreEqual(3.5, a.at(2));
+	//	}
 
-		TEST_METHOD(array_grow_from_empty)
-		{
-			array a;
-			Assert::AreEqual(0u, a.size());
-			a.push_back(1.5);
-			Assert::AreEqual(1u, a.size());
-			a.push_back(2.5);
-			Assert::AreEqual(2u, a.size());
-			a.push_back(3.5);
-			Assert::AreEqual(3u, a.size());
-			Assert::AreEqual(1.5, a.at(0));
-			Assert::AreEqual(2.5, a.at(1));
-			Assert::AreEqual(3.5, a.at(2));
-		}
-
-		TEST_METHOD(array_grow)
-		{
-			array a(size, value);
-			Assert::AreEqual(size, a.size());
-			a.push_back(100);
-			a.push_back(200);
-			a.push_back(300);
-			a.push_back(400);
-			a.push_back(500);
-			Assert::AreEqual(size + 5, a.size());
-			Assert::AreEqual(value, a.at(0));
-			Assert::AreEqual(value, a.at(size - 1));
-			Assert::AreEqual(100., a.at(size));
-			Assert::AreEqual(500., a.at(size + 4));
-		}
-	};
+	//	TEST_METHOD(array_grow)
+	//	{
+	//		array a(size, value);
+	//		Assert::AreEqual(size, a.size());
+	//		a.push_back(100);
+	//		a.push_back(200);
+	//		a.push_back(300);
+	//		a.push_back(400);
+	//		a.push_back(500);
+	//		Assert::AreEqual(size + 5, a.size());
+	//		Assert::AreEqual(value, a.at(0));
+	//		Assert::AreEqual(value, a.at(size - 1));
+	//		Assert::AreEqual(100., a.at(size));
+	//		Assert::AreEqual(500., a.at(size + 4));
+	//	}
+	//};
 }
