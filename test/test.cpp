@@ -112,7 +112,7 @@ namespace all_tests
 			Assert::AreEqual(6u, r.starts_with_letter('A'));
 		}
 
-	};
+	};/*
 
 	TEST_CLASS(test_v03_array)
 	{
@@ -195,5 +195,5 @@ namespace all_tests
 			Assert::AreEqual(100., a.at(size));
 			Assert::AreEqual(500., a.at(size + 4));
 		}
-	};
+	};*/
 }
