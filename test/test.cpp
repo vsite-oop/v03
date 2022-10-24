@@ -1,5 +1,6 @@
 #include "CppUnitTest.h"
 #include "../app/app.h"
+#include "../app/app.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace vsite::oop::v3;
@@ -113,7 +114,7 @@ namespace all_tests
 		}
 
 	};
-
+	/*
 	TEST_CLASS(test_v03_array)
 	{
 		const uint32_t size = 10;
@@ -195,5 +196,5 @@ namespace all_tests
 			Assert::AreEqual(100., a.at(size));
 			Assert::AreEqual(500., a.at(size + 4));
 		}
-	};
+	};*/
 }
