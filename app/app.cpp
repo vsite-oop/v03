@@ -10,9 +10,9 @@ namespace vsite::oop::v3
         arStudents = new student[nrStudents];
     }
 
-    /*results::~results() {
-        delete arStudents; arStudents = nullptr;
-    }*/
+    results::~results() {
+        delete[] arStudents; arStudents = nullptr;
+    }
 
     void results::add(student stdnt) {
         arStudents[nrStudentsAdded] = stdnt;

@@ -15,7 +15,7 @@ namespace vsite::oop::v3
 
     public:
         results(unsigned nrStudents);
-        //~results();
+        ~results();
 
         void add(student stdnt);
         unsigned has_grade(int grade) const;
