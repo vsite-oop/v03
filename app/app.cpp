@@ -3,9 +3,12 @@
 
 namespace vsite::oop::v3
 {
-	results::results(unsigned num){
-		point = new student[num];
-	}
+	results::results(unsigned num) : places_taken(num), index(0)
+		{
+			point = new student[places_taken];
+		}
+		
+
 
 	results::~results() {
 		delete[] point;
@@ -13,12 +16,13 @@ namespace vsite::oop::v3
 	}
 
 	void results::add(student s) {
-		point[index++] = s;
+		point[index] = s;
+		index++;
 	}
 
-	unsigned results::has_grade(int grade) {
-		unsigned grades_found=0;
-		for (int i = 0; i < sizeof(point); ++i) {
+	unsigned results::has_grade (int grade) const {
+		unsigned grades_found = 0;
+		for (int i = 0; i < places_taken; ++i) {
 			if (point[i].grade == grade) {
 				grades_found++;
 			}
@@ -26,10 +30,10 @@ namespace vsite::oop::v3
 		return grades_found;
 	}
 
-	unsigned results::starts_with_letter(char letter) {
+	unsigned results::starts_with_letter (char letter) const {
 		unsigned letters_found=0;
-		for (int i = 0; i < sizeof(point); ++i) {
-			if (toupper(point[i].name[1]) == toupper(letter)) {
+		for (int i = 0; i < places_taken; ++i) {
+			if (toupper(point[i].name[0]) == toupper(letter)) {
 				letters_found++;
 			}
 		}
