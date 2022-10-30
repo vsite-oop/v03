@@ -39,7 +39,6 @@ namespace vsite::oop::v3
 
     array::array()
         : arraySize{ 0 }
-        , tailIndex{ 0 }
         , reservedSpace{ 8 }
     {
         valueArray = new double[reservedSpace];
@@ -48,17 +47,15 @@ namespace vsite::oop::v3
     array::array(const uint32_t arraySize, const double value)
         : arraySize{ arraySize }
         , reservedSpace{ getReservedSpaceFromSize(arraySize)}
-        , tailIndex{arraySize - 1}
     {
         valueArray = new double[reservedSpace];
         std::fill(valueArray, valueArray + arraySize, value);
-        if (this->arraySize >= reservedSpace) { growArray();}
+        if (arraySize >= reservedSpace) { growArray();}
     }
 
     array::array(const array& templateArray)
         : arraySize{ templateArray.arraySize }
         , reservedSpace{ templateArray.reservedSpace }
-        , tailIndex{ templateArray.tailIndex }
     {
         valueArray = new double[reservedSpace];
         std::copy(templateArray.valueArray, templateArray.valueArray + templateArray.arraySize, this->valueArray);
@@ -67,12 +64,10 @@ namespace vsite::oop::v3
     array::array(array&& other)
         : arraySize{ other.arraySize }
         , reservedSpace{ other.reservedSpace }
-        , tailIndex{ other.tailIndex }
     {
         valueArray = new double[reservedSpace];
         std::copy(other.valueArray, other.valueArray + other.arraySize, this->valueArray);
         other.arraySize = 0;
-        other.tailIndex = 0;
         other.reservedSpace = 8;
         other.valueArray = nullptr;
     }
@@ -109,12 +104,11 @@ namespace vsite::oop::v3
     }
 
     void array::push_back(const double value) {
+        valueArray[arraySize] = value;
         ++arraySize;
         
         if (arraySize >= reservedSpace) {
             growArray();
         }
-
-        valueArray[tailIndex++] = value;
     }
 }

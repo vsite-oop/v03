@@ -24,7 +24,6 @@ namespace vsite::oop::v3
 
     class array {
         uint32_t arraySize;
-        uint32_t tailIndex;
         double *valueArray;
         uint32_t reservedSpace;
         void growArray();
