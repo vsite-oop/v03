@@ -21,4 +21,22 @@ namespace vsite::oop::v3
         unsigned has_grade(int grade) const;
         unsigned starts_with_letter(char firstLetter) const;
     };
+
+    class array {
+        uint32_t arraySize;
+        uint32_t tailIndex;
+        double *valueArray;
+        uint32_t reservedSpace;
+        void growArray();
+        uint32_t getReservedSpaceFromSize(int size);
+    public:
+        array();
+        array(uint32_t arraySize, double value);
+        array(const array& templateArray);
+        array(array&& other);
+        ~array();
+        uint32_t size() const;
+        double at(int index) const;
+        void push_back(double value);
+    };
 }

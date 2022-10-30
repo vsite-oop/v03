@@ -36,4 +36,85 @@ namespace vsite::oop::v3
         }
         return rez;
     }
+
+    array::array()
+        : arraySize{ 0 }
+        , tailIndex{ 0 }
+        , reservedSpace{ 8 }
+    {
+        valueArray = new double[reservedSpace];
+    }
+
+    array::array(const uint32_t arraySize, const double value)
+        : arraySize{ arraySize }
+        , reservedSpace{ getReservedSpaceFromSize(arraySize)}
+        , tailIndex{arraySize - 1}
+    {
+        valueArray = new double[reservedSpace];
+        std::fill(valueArray, valueArray + arraySize, value);
+        if (this->arraySize >= reservedSpace) { growArray();}
+    }
+
+    array::array(const array& templateArray)
+        : arraySize{ templateArray.arraySize }
+        , reservedSpace{ templateArray.reservedSpace }
+        , tailIndex{ templateArray.tailIndex }
+    {
+        valueArray = new double[reservedSpace];
+        std::copy(templateArray.valueArray, templateArray.valueArray + templateArray.arraySize, this->valueArray);
+    }
+
+    array::array(array&& other)
+        : arraySize{ other.arraySize }
+        , reservedSpace{ other.reservedSpace }
+        , tailIndex{ other.tailIndex }
+    {
+        valueArray = new double[reservedSpace];
+        std::copy(other.valueArray, other.valueArray + other.arraySize, this->valueArray);
+        other.arraySize = 0;
+        other.tailIndex = 0;
+        other.reservedSpace = 8;
+        other.valueArray = nullptr;
+    }
+
+    array::~array() {
+        delete[] valueArray;
+    }
+
+    double array::at(const int index) const {
+        if (0 < arraySize && index < arraySize) { return valueArray[index]; }
+        return 0.;
+    }
+
+    uint32_t array::size() const { return arraySize; }
+
+    void array::growArray() {
+        while (arraySize >= reservedSpace) {
+            reservedSpace *= 2;
+        }
+
+        double* tempArray = new double[reservedSpace];
+        std::copy_n(valueArray, arraySize, tempArray);
+        delete[] valueArray;
+
+        valueArray = new double[reservedSpace];
+        std::copy_n(tempArray, arraySize, valueArray);
+        delete[] tempArray;
+    }
+
+    uint32_t array::getReservedSpaceFromSize(int size) {
+        uint32_t start = 8;
+        while (start <= size) { start *= 2; }
+        return start;
+    }
+
+    void array::push_back(const double value) {
+        ++arraySize;
+        
+        if (arraySize >= reservedSpace) {
+            growArray();
+        }
+
+        valueArray[tailIndex++] = value;
+    }
 }
