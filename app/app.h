@@ -23,9 +23,9 @@ namespace vsite::oop::v3
     };
 
     class array {
+        uint32_t reservedSpace;
         uint32_t arraySize;
         double *valueArray;
-        uint32_t reservedSpace;
         void growArray();
         uint32_t getReservedSpaceFromSize(int size);
     public:
