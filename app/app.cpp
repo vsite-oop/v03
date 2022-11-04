@@ -68,8 +68,8 @@ namespace vsite::oop::v3
     {
         std::copy(other.valueArray, other.valueArray + other.arraySize, this->valueArray);
         other.arraySize = 0;
-        other.reservedSpace = 8;
-        other.valueArray = new double[other.reservedSpace];
+        other.reservedSpace = 0;
+        other.valueArray = nullptr;
     }
 
     array::~array() {
@@ -84,16 +84,13 @@ namespace vsite::oop::v3
     uint32_t array::size() const { return arraySize; }
 
     void array::growArray() {
+        reservedSpace *= 2;
 
         double* tempArray = new double[reservedSpace];
         std::copy_n(valueArray, arraySize, tempArray);
         delete[] valueArray;
 
-        reservedSpace *= 2;
-
-        valueArray = new double[reservedSpace];
-        std::copy_n(tempArray, arraySize, valueArray);
-        delete[] tempArray;
+        valueArray = tempArray;
     }
 
     uint32_t array::getReservedSpaceFromSize(const int size) {
