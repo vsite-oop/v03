@@ -25,7 +25,6 @@ namespace vsite::oop::v3
 				++count;
 		}
 		return count;
-		delete[] students;
 
 	}
 	unsigned int results::starts_with_letter(const char chr) const{
@@ -36,6 +35,5 @@ namespace vsite::oop::v3
 				++coutn;
 		}
 		return coutn;
-		delete[] students;
 	}
 }
