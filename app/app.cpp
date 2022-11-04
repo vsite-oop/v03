@@ -3,24 +3,24 @@
 
 namespace vsite::oop::v3
 {
-    results::results(unsigned nrStudents) : 
-        nrStudents { nrStudents },
-        nrStudentsAdded(0)
+    results::results(uint32_t nrStudents)
+        : nrStudents { nrStudents }
+        , nrStudentsAdded(0)
+        , arStudents{ new student[nrStudents] }
     {
-        arStudents = new student[nrStudents];
     }
 
     results::~results() {
         delete[] arStudents; arStudents = nullptr;
     }
 
-    void results::add(student stdnt) {
+    void results::add(const student& stdnt) {
         arStudents[nrStudentsAdded] = stdnt;
         nrStudentsAdded++;
     }
 
-    unsigned results::has_grade(int grade) const {
-        unsigned rez = 0;
+    uint32_t results::has_grade(const int grade) const {
+        uint32_t rez = 0;
         for (int i = 0; i < nrStudentsAdded; i++) {
             if (arStudents[i].grade == grade)
                 rez++;
@@ -28,7 +28,7 @@ namespace vsite::oop::v3
         return rez;
     }
 
-    unsigned results::starts_with_letter(char firstLetter) const {
+    uint32_t results::starts_with_letter(const char firstLetter) const {
         unsigned rez = 0;
         for (int i = 0; i < nrStudentsAdded; i++) {
             if (tolower(arStudents[i].name[0]) == tolower(firstLetter))

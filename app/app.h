@@ -9,17 +9,17 @@ namespace vsite::oop::v3
     };
 
     class results {
-        unsigned nrStudents;
+        uint32_t nrStudents;
         int nrStudentsAdded;
         student* arStudents;
 
     public:
-        results(unsigned nrStudents);
+        results(uint32_t nrStudents);
         ~results();
 
-        void add(student stdnt);
-        unsigned has_grade(int grade) const;
-        unsigned starts_with_letter(char firstLetter) const;
+        void add(const student& stdnt);
+        uint32_t has_grade(const int grade) const;
+        uint32_t starts_with_letter(const char firstLetter) const;
     };
 
     class array {
@@ -35,7 +35,7 @@ namespace vsite::oop::v3
         array(array&& other);
         ~array();
         uint32_t size() const;
-        double at(int index) const;
-        void push_back(double value);
+        double at(const int index) const;
+        void push_back(const double value);
     };
 }

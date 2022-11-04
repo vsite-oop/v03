@@ -10,19 +10,18 @@ int main()
     std::cout << "Unesite broj studenata: ";
     std::cin >> nrStudents;
 
-    auto tablicaRezultata = vsite::oop::v3::results(nrStudents);
+    vsite::oop::v3::results tablicaRezultata = vsite::oop::v3::results(nrStudents);
 
     for (int i = 1; i <= nrStudents; i++) {
-        std::string ime;
-        int ocjena;
+        vsite::oop::v3::student inputStudent;
 
         std::cout << "Unesite ime " << i << ". studenta: ";
-        std::cin >> ime;
+        std::cin >> inputStudent.name;
 
         std::cout << "Unesite ocjenu " << i << ". studenta: ";
-        std::cin >> ocjena;
+        std::cin >> inputStudent.grade;
 
-        tablicaRezultata.add(vsite::oop::v3::student(ime, ocjena));
+        tablicaRezultata.add(inputStudent);
     }
 
     int ocjenaStatistika;
