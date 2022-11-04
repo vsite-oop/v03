@@ -114,7 +114,7 @@ namespace all_tests
 
 	};
 
-	TEST_CLASS(test_v03_array)
+	/*TEST_CLASS(test_v03_array)
 	{
 		const uint32_t size = 10;
 		const double value = 1.5;
@@ -196,4 +196,5 @@ namespace all_tests
 			Assert::AreEqual(500., a.at(size + 4));
 		}
 	};
+	*/
 }
