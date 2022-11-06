@@ -112,7 +112,7 @@ namespace all_tests
 			Assert::AreEqual(6u, r.starts_with_letter('A'));
 		}
 
-	};/*
+	};
 
 	TEST_CLASS(test_v03_array)
 	{
@@ -133,7 +133,7 @@ namespace all_tests
 			for(uint32_t i=0; i<a.size(); ++i)
 				Assert::AreEqual(value, a.at(i));
 		}
-
+		
 		TEST_METHOD(array_index_invalid_large)
 		{
 			array a(size, value);
@@ -164,7 +164,7 @@ namespace all_tests
 			for (uint32_t i = 0; i < b.size(); ++i)
 				Assert::AreEqual(value, b.at(i));
 		}
-
+		
 		TEST_METHOD(array_grow_from_empty)
 		{
 			array a;
@@ -179,7 +179,7 @@ namespace all_tests
 			Assert::AreEqual(2.5, a.at(1));
 			Assert::AreEqual(3.5, a.at(2));
 		}
-
+		
 		TEST_METHOD(array_grow)
 		{
 			array a(size, value);
@@ -195,5 +195,5 @@ namespace all_tests
 			Assert::AreEqual(100., a.at(size));
 			Assert::AreEqual(500., a.at(size + 4));
 		}
-	};*/
+	};
 }
