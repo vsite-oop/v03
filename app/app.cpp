@@ -9,7 +9,12 @@ namespace vsite::oop::v3
 		students = new student[size];
 	}
 
-	void results::add(student new_student)
+	results::~results()
+	{
+		delete[] students; students = nullptr;
+	}
+
+	void results::add(const student& new_student)
 	{
 		students[current_student] = new_student;
 		current_student++;
@@ -74,8 +79,8 @@ namespace vsite::oop::v3
 	array::array(array&& other) noexcept:
 		max_length(other.max_length), number_of_elements(other.number_of_elements), arr(other.arr)
 	{
-		other.max_length = NULL;
-		other.number_of_elements = NULL;
+		other.max_length = 0;
+		other.number_of_elements = 0;
 		other.arr = nullptr;
 	}
 

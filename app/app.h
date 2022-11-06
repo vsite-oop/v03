@@ -6,16 +6,17 @@ namespace vsite::oop::v3
 	struct student
 	{
 	public:
-		std::string name = "";
-		int grade = 0;
+		std::string name;
+		int grade;
 	};
 
 	struct results
 	{
 	public:
 		results(int size);
+		~results();
 
-		void add(student new_student);
+		void add(const student& new_student);
 		unsigned int has_grade(int wanted_grade) const;
 		unsigned int starts_with_letter(char wanted_letter) const;
 

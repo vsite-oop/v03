@@ -13,7 +13,7 @@ int main()
 	std::cout << "Input number of students: ";
 	std::cin >> student_count;
 	auto results = vsite::oop::v3::results(student_count);
-
+	
 	for (int i = 0; i < student_count; i++)
 	{
 		std::string temp_name;
