@@ -17,7 +17,7 @@ namespace vsite::oop::v3
 	public:
 		results(const int id);
 
-		void add(student);
+		void add(const student&);
 		unsigned int has_grade(int) const;
 		unsigned int starts_with_letter(char) const;
 

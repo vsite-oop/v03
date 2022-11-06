@@ -2,11 +2,9 @@
 #include <stdio.h>
 #include<iostream>
 
-
-
-
 using namespace::vsite::oop::v3;
 using namespace::std;
+
 	int main(){
 		
 		// read number of results
@@ -35,5 +33,4 @@ using namespace::std;
 		char chr = NULL;
 		cin >> chr;
 		cout << r.starts_with_letter(chr) << endl;
-
 	}

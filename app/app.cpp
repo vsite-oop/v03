@@ -12,7 +12,7 @@ namespace vsite::oop::v3
 		students = new student[id];
 	}
 
-	void results::add(student s) {
+	void results::add(const student& s) {
 		students[id] = s;
 		++id;
 	}
