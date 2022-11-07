@@ -64,9 +64,8 @@ namespace vsite::oop::v3
     array::array(array&& other)
         : arraySize{ other.arraySize }
         , reservedSpace{ other.reservedSpace }
-        , valueArray{ new double[reservedSpace] }
+        , valueArray{ other.valueArray }
     {
-        std::copy(other.valueArray, other.valueArray + other.arraySize, this->valueArray);
         other.arraySize = 0;
         other.reservedSpace = 0;
         other.valueArray = nullptr;
