@@ -11,10 +11,13 @@ namespace vsite::oop::v3
     };
     class results{
         
-        int a;
+        int i;
+        student* p;
+        unsigned place;
+
         
         public:
-         results(int a);
+         results(unsigned a);
          ~results();
          unsigned has_grade(int a)const;
          unsigned starts_with_letter(char c)const;
