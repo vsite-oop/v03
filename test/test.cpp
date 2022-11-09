@@ -113,7 +113,7 @@ namespace all_tests
 		}
 
 	};
-
+}
      /*TEST_CLASS(test_v03_array)
 	{
 		const uint32_t size = 10;
