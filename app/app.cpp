@@ -3,17 +3,9 @@
 
 namespace vsite::oop::v3
 {
-	/*====/Class student/====*/
-	student::student(std::string student_name, int student_grade)  // P3 - one of four different implementation methods
-		: student_name(student_name), student_grade(student_grade) {}
-
-	std::string student::name() const {
-		return student_name;
-	}
-
-	int student::grade() const {
-		return student_grade;
-	}
+	/*====/Struct student/====*/
+	student::student(std::string student_name, int student_grade)  // P3 - one of four different implementation methods.
+		: name(student_name), grade(student_grade) {}
 
 	/*=====/Class Results/=====*/
 	results::results(unsigned arr_size) : arr_size(arr_size), index(0) {
@@ -33,7 +25,7 @@ namespace vsite::oop::v3
 		unsigned count = 0;
 		
 		for (int i = 0; i < arr_size; i++) {
-			if (array[i].grade() == g) {
+			if (array[i].grade == g) {
 				count++;
 			}
 		}
@@ -44,7 +36,7 @@ namespace vsite::oop::v3
 		unsigned count = 0;
 
 		for (int i = 0; i < arr_size; i++) {
-			if (tolower(array[i].name()[0]) == c || toupper(array[i].name()[0]) == c) {
+			if (tolower(array[i].name[0]) == c || toupper(array[i].name[0]) == c) {
 				count++;
 			}
 		}

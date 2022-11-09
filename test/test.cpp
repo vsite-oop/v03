@@ -12,8 +12,8 @@ namespace all_tests
 		TEST_METHOD(struct_student)
 		{
 			student s{ "pero", 2 };
-			Assert::AreEqual("pero", s.name().c_str());
-			Assert::AreEqual(2, s.grade());
+			Assert::AreEqual("pero", s.name.c_str());
+			Assert::AreEqual(2, s.grade);
 		}
 
 		TEST_METHOD(results_test_set_1)

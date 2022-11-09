@@ -3,15 +3,11 @@
 
 namespace vsite::oop::v3
 {
-	class student {
-		std::string student_name;
-		int student_grade;
+	struct student {
+		std::string name;
+		int grade;
 
-	public:
 		student(std::string student_name = "ime", int student_grade = 0);  // Default values must be here!
-
-		std::string name() const;
-		int grade() const;
 	};
 
 
