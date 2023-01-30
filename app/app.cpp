@@ -3,7 +3,7 @@
 
 namespace vsite::oop::v3
 {
-	void results::add(student stud) {
+	void results::add(const student& stud) {
 		student_array[count] = stud;
 		count++;
 	};
@@ -19,10 +19,11 @@ namespace vsite::oop::v3
 	};
 
 	unsigned int results::starts_with_letter(char letter) {
+		
 		unsigned int letter_count = 0;
 		for ( unsigned int i = 0; i < count; ++i) {
 			
-			if (student_array[i].name.starts_with(toupper(letter)) || student_array[i].name.starts_with(tolower(letter))) {
+			if (student_array[i].name.starts_with(toupper(letter)) || student_array[i].name.starts_with(toupper(letter))) {
 				letter_count++;
 			};
 			

@@ -4,9 +4,10 @@
 namespace vsite::oop::v3
 
 {
-	using namespace std;
+	
+
 	struct student {
-		string name;
+		std::string name;
 		int grade = 0;
 	};
 
@@ -22,7 +23,7 @@ namespace vsite::oop::v3
 		~results() {
 			delete[] student_array; student_array = nullptr;
 		};
-		void add(student stud);
+		void add(const student& stud);
 		unsigned int has_grade(unsigned int grade);
 		unsigned int starts_with_letter(char letter);
 	};
