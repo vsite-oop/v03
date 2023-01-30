@@ -24,7 +24,7 @@ namespace vsite::oop::v3
 			delete[] student_array; student_array = nullptr;
 		};
 		void add(const student& stud);
-		unsigned int has_grade(unsigned int grade);
-		unsigned int starts_with_letter(char letter);
+		unsigned int has_grade(unsigned int grade) const;
+		unsigned int starts_with_letter(char letter) const;
 	};
 }

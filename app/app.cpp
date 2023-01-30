@@ -8,7 +8,7 @@ namespace vsite::oop::v3
 		count++;
 	};
 
-	unsigned int results::has_grade(unsigned int grade) {
+	unsigned int results::has_grade(unsigned int grade) const {
 		unsigned int grade_count = 0;
 		for (unsigned int i = 0; i < count; ++i) {
 			if (student_array[i].grade == grade) {
@@ -18,12 +18,12 @@ namespace vsite::oop::v3
 		return grade_count;
 	};
 
-	unsigned int results::starts_with_letter(char letter) {
+	unsigned int results::starts_with_letter(char letter) const {
 		
 		unsigned int letter_count = 0;
 		for ( unsigned int i = 0; i < count; ++i) {
 			
-			if (student_array[i].name.starts_with(toupper(letter)) || student_array[i].name.starts_with(toupper(letter))) {
+			if (tolower(student_array[i].name[0]) == tolower(letter)) {
 				letter_count++;
 			};
 			
