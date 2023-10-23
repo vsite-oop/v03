@@ -1,6 +1,7 @@
 #include "CppUnitTest.h"
 #include "../app/app.h"
 
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace vsite::oop::v3;
 
