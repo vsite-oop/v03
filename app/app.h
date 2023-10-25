@@ -15,13 +15,13 @@ namespace vsite::oop::v3
 		student* niz = nullptr;
 	public: 
 		results(int duljina = 0);
-		void add(student s);
+		void add(student const& s);
 		unsigned has_grade(int i);
 		unsigned starts_with_letter(char c);
 		void ispis();
 		~results();
 	};
-		class array {
+	class array {
 		private:
 			uint32_t si;
 			double va;
@@ -32,7 +32,7 @@ namespace vsite::oop::v3
 			uint32_t size();
 			double at(int i = 0);
 			void push_back(double broj);
-			array(array&& other) noexcept;
+			array(array&& other);
 			array(const array& other);
 		};
 }

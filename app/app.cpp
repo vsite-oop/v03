@@ -10,20 +10,19 @@ namespace vsite::oop::v3
 		duljina = i;
 		niz = new student[duljina];
 	}
-	void results::add(student s) {
+	void results::add(student const&  s) {
 		niz[brojac] = s;
 		++brojac;
 	}
 	void results::ispis()
 	{
 		for (int i = 0; i < duljina; ++i)
-			std::cout <<"ime:" << niz[i].name << std::endl;
+			std::cout << niz[i].name << std::endl;
 
 	}
 	unsigned results::has_grade(int ocjena)
 	{
 		int brojac1 = 0;
-		int j = 0;
 		for (int j = 0; j < duljina; ++j)
 		{
 			if (niz[j].grade == ocjena)
@@ -83,7 +82,7 @@ namespace vsite::oop::v3
  		novi_niz[nova_duljina - 1] = broj;
 		si = nova_duljina;
 	}
-	 array::array (array&& other) noexcept : si(other.si),niz2(other.niz2)
+	 array::array (array&& other): si(other.si),niz2(other.niz2)
 	{
 		other.si = 0;
 		other.niz2 = nullptr;
