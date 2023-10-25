@@ -8,7 +8,7 @@ namespace vsite::oop::v3
 		studNiz = new student[count];
 	}
 
-	void results::add(student s) {
+	void results::add(const student& s) {
 		studNiz[pos] = s;
 		pos++;
 	}
@@ -60,15 +60,13 @@ namespace vsite::oop::v3
 		}
 	}
 
-	array::array(array&& s) noexcept {
-		_size = s._size;
-		nizArr = s.nizArr;
+	array::array(array&& s) : _size(s._size), nizArr(s.nizArr) {
 		s._size = 0;
 		s.nizArr = nullptr;
 	}
 	
 	double array::at(int i) {
-		if (i < 0 || i > _size) {
+		if (i < 0 || i >= _size) {
 			return 0.;
 		}
 
@@ -87,5 +85,9 @@ namespace vsite::oop::v3
 		delete[] nizArr;
 		nizArr = tempNiz;
 		_size = tempSize;		
+	}
+
+	array::~array() {
+		delete[] nizArr;
 	}
 }

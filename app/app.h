@@ -15,7 +15,7 @@ namespace vsite::oop::v3
 
 	public:
 		results(int count = 0);
-		void add(student s);
+		void add(const student& s);
 		unsigned has_grade(int g);
 		unsigned starts_with_letter(char c);
 		~results();
@@ -28,7 +28,8 @@ namespace vsite::oop::v3
 	public:
 		array(unsigned s = 0, double value = 0.0);
 		array(const array& source);
-		array(array&& source) noexcept;
+		array(array&& source);
+		~array();
 
 		unsigned size() {
 			return _size;
@@ -37,5 +38,6 @@ namespace vsite::oop::v3
 		double at(int i);
 
 		void push_back(double value);
+
 	};
 }   
