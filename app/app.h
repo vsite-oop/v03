@@ -1,7 +1,6 @@
 #pragma once
 #include<string>
 #include<iostream>
-#include<algorithm>
 
 namespace vsite::oop::v3 
 {
