@@ -6,18 +6,27 @@
 // read letter and output letter statistics
 int main()
 {
-	vsite::oop::v3::results r(3);
-	r.add({ "ver", 1 });
-	r.add({ "per", 2 });
-	r.add({ "ham",3 });
-	std::cout<<r.has_grade(1)<<"\n";
-	std::cout << r.starts_with_letter('p')<<"\n";
-
-	vsite::oop::v3::array a(5, 1.5);
-	for (int i = 0; i < a.size(); ++i) {
-		std::cout << a.at(i) << "\n";
+	int n;
+	std::cout << "unos broja studenta: ";
+	std::cin >> n;
+	vsite::oop::v3::results list(n);
+	
+	std::string ime;			
+	int ocjena;
+	for (int i = 0; i < n; i++) {
+		std::cout << "ime: ";			
+		std::cin >> ime;
+		std::cout << "ocjena: ";
+		std::cin >> ocjena;
+		list.add({ ime,ocjena });
 	}
-	a.push_back(4.5);
-	std::cout << a.at(a.size()-1) << "\n";
+	int trazenaocjena;
+	std::cout << "broji studente s ocjenom: ";
+	std::cin >> trazenaocjena;
+	std::cout << list.has_grade(trazenaocjena) << "\n";
+	char x;
+	std::cout << "broji studente sa slovom: ";
+	std::cin >> x;
+	std::cout << list.starts_with_letter(x) << "\n";
 
 }
