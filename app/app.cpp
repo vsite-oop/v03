@@ -56,7 +56,7 @@ namespace vsite::oop::v3
 		return sizeArr;
 	}
 	double array::at(int pointer) {
-		if (pointer < 0 || pointer > sizeArr) return 0;
+		if (pointer < 0 || pointer >= sizeArr) return 0;
 		return arr[pointer];
 	}
 	void array::push_back(double value) {
