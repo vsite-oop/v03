@@ -162,7 +162,7 @@ namespace all_tests
 			Assert::AreEqual(0u, a.size());
 			Assert::AreEqual(size, b.size());
 			for (uint32_t i = 0; i < b.size(); ++i)
-				Assert::AreEqual(value, b.at(i));
+				Assert::AreEqual(value, b.at(i));	
 		}
 
 		TEST_METHOD(array_grow_from_empty)
