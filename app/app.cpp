@@ -36,7 +36,7 @@ namespace vsite::oop::v3
         }
         return n;
     }
-
+    /*ovaj dio je promijenjen*/
     array::array(uint32_t size, double value) {
         len = size;
         niz = new double[len];
