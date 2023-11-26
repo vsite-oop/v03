@@ -45,6 +45,7 @@ namespace vsite::oop::v3
             niz[i] = value;
         }
     }
+/*do ovdje*/
 
     array::array(const array& other) : len(other.len) {
         niz = new double[len];

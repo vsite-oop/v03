@@ -8,7 +8,7 @@ int main()
 	std::string ime;
 	int n, ocjena;
 
-	std::cout << "Koliko studenta zelite unijeti: ";
+	std::cout << "Koliko studenta cete unijeti: ";
 	std::cin >> n;
 	vsite::oop::v3::results s(n);
 
