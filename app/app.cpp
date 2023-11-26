@@ -40,7 +40,10 @@ namespace vsite::oop::v3
     array::array(uint32_t size, double value) {
         len = size;
         niz = new double[len];
-        memset(niz, value, len * sizeof(double));
+
+        for (uint32_t i = 0; i < len; ++i) {
+            niz[i] = value;
+        }
     }
 
     array::array(const array& other) : len(other.len) {
